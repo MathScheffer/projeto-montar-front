@@ -1,0 +1,34 @@
+.slotProdutoContainer{
+    background-color: blueviolet;
+    width: 100%;
+}
+.imgContainer:first-of-type{
+    background-color: gray;
+    height: 360px;
+    width: 360px;
+}
+.buttons{
+    align-self: flex-end;
+    min-width: 113px;
+    font-size: 1.25em;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.slotProduto{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flexColumn{
+    flex-direction: column;
+}
+.justifySpaceBetween{
+    display: flex;
+    justify-content: space-between;
+}
+.justifyCenter{
+    display: flex;
+    justify-content: center; 
+}

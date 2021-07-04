@@ -1,0 +1,33 @@
+@import 'grid.scss';
+
+.home{
+/*     display: flex;
+    flex-direction: column; */
+    align-items: center;
+    margin: 0 auto;
+    nav{
+        margin: 0 auto;
+        a{
+            border-radius: 5px;
+            text-align: center;
+        }
+
+    }
+    .nav-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav-btn{
+       font-size: 1.25em;
+        text-decoration: none;
+        color:black;
+        display: inline-block;
+        background-color: darkgrey;
+        padding: 5px;
+        margin: 0 5px;
+        &.active{
+            background-color:lightgrey;
+        }
+    }
+}
