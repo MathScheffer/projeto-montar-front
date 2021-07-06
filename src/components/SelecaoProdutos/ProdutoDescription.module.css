@@ -1,0 +1,64 @@
+.containerSelecaoBackground{
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+
+.containerSelecao{
+    position: absolute;
+    z-index:1;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerSelecao article{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    background-color: white;
+}
+
+.displayNone{
+    display: none;
+}
+
+.display-block{
+    display: block;
+}
+.produtoRow{
+    width:100%;
+    margin-bottom: 0;
+}
+
+.containerDescriptionList{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+}
+.produtoDescricaoContainer{
+    border:1px solid black;
+    height: 100%;
+    cursor:pointer
+}
+.produtoDescricao{
+    background:'tomato';
+    height: 100%;
+    width: 100%;
+}
+
+.produtoDescricaoImgContainer{
+    background-color: aqua;
+    height: 60px;
+}

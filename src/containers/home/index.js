@@ -22,7 +22,7 @@ export default class Home extends Component{
                 <h1>Home</h1>
                 <nav className="row">
                     <div className="grid-8 nav-container">
-                        <NavLink end to={{pathname:"/",}} state={{background:'tomato',nome:"Processador"}} 
+                        <NavLink end to={{pathname:"/processador",}} state={{background:'tomato',nome:"Processador"}} 
                             className='nav-btn'>Processador</NavLink>
                         {this.arr.map(str => 
                             <NavLink key={this.retiraEspacos(str)} 
@@ -35,12 +35,12 @@ export default class Home extends Component{
                 </nav>
 
                 <Routes>
-                    <Route exact path='/' element={<SlotProdutoContainer />}/>
-                    <Route  path='/placa-mae' element={<SlotProdutoContainer />}/>
-                    <Route  path='/memoria-ram' element={<SlotProdutoContainer />}/>
-                    <Route  path='/armazenamento' element={<SlotProdutoContainer />}/>
-                    <Route  path='/placa-de-video' element={<SlotProdutoContainer />}/>
-                    <Route  path='/fonte' element={<SlotProdutoContainer />}/>
+                    <Route exact path='/processador' element={<SlotProdutoContainer categoria="processador"/>}/>
+                    <Route  path='/placa-mae' element={<SlotProdutoContainer categoria="placa-mae"/>}/>
+                    <Route  path='/memoria-ram' element={<SlotProdutoContainer categoria="ram"/>}/>
+                    <Route  path='/armazenamento' element={<SlotProdutoContainer categoria="armazenamento"/>}/>
+                    <Route  path='/placa-de-video' element={<SlotProdutoContainer categoria="vga"/>}/>
+                    <Route  path='/fonte' element={<SlotProdutoContainer categoria="fonte"/>}/>
                 </Routes>
             </div>
         )

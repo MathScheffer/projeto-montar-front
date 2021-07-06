@@ -2,10 +2,18 @@
     background-color: blueviolet;
     width: 100%;
 }
-.imgContainer:first-of-type{
+.prodInfos:first-of-type{
     background-color: gray;
     height: 360px;
     width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgContainer{
+    height: 40%;
+    width: 40%;
+    background-color: tomato;
 }
 .buttons{
     align-self: flex-end;

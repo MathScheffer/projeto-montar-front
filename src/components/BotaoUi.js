@@ -6,7 +6,6 @@ const BotaoUi = ({nome,...props}) => {
     const infos = useLocation()
     let color = 'blue'
     if(infos.state){
-        console.log(infos.state.background)
         color = infos.state.background
     }
         
