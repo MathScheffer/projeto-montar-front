@@ -15,6 +15,9 @@
     width: 40%;
     background-color: tomato;
 }
+.imgContainer img{
+    height: 100%;
+}
 .buttons{
     align-self: flex-end;
     min-width: 113px;

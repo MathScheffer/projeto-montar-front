@@ -19,7 +19,7 @@ export default class Home extends Component{
     render() {
         return(
             <div className='home container'>
-                <h1>Home</h1>
+                <h1 style={{textAlign:"center"}}>Escolha uma opção para começar!</h1>
                 <nav className="row">
                     <div className="grid-8 nav-container">
                         <NavLink end to={{pathname:"/processador",}} state={{background:'tomato',nome:"Processador"}} 
