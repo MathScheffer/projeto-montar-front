@@ -1,0 +1,22 @@
+.produtoDescricaoContainer{
+    border:1px solid black;
+    height: 100%;
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+}
+.produtoDescricao{
+    background:'tomato';
+    height: 100%;
+    width: 100%;
+}
+
+.produtoDescricaoImgContainer{
+    background-color: aqua;
+    height: 174px;
+    margin-bottom: 0;
+}
+
+.produtoDescricaoImgContainer img{
+    height: 100%;
+}
+

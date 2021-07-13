@@ -26,6 +26,9 @@
         background-color: darkgrey;
         padding: 5px;
         margin: 0 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
         &.active{
             background-color:lightgrey;
         }

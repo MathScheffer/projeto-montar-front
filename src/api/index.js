@@ -5,37 +5,32 @@ const _get = url => new Promise( (resolve, reject) => axios.get(url).then( res =
 const _post = ( url, dados ) => new Promise( ( resolve, reject ) => axios.post( url, dados ).then( response => resolve( response.data ) ) );
 
 export default class MirrorApi{
-    listarHardwarePorCategoria(categoria){
+  listarHardwarePorCategoria(categoria){
     return _get(url+categoria);
   }
 
-  get detalhes() {
-    return _get(`${ url }detalhes` );
+  adicionarProcessador(body){
+    return _post(url+"computador/adicionar/processador",body)
   }
-  
-  async buscarEpisodio( id ) {
-    const response = await _get(`${url}episodios?id=${id}`);
-    return response[ 0 ];
+  adicionarPlacaMae(body){
+    return _post(url+"computador/adicionar/placa-mae",body)
   }
-  
-  async buscarDetalhes( id ) {
-    const response = await _get(`${url}episodios/${id}/detalhes`);
-    return response[ 0 ];
+  adicionarMemoriaRam(body){
+    return _post(url+"computador/adicionar/ram",body)
   }
-
-  buscarNota( id ) {
-    return _get(`${url}notas?episodioId=${id}`)
+  adicionarArmazenamento(body){
+    return _post(url+"computador/adicionar/armazenamento",body)
   }
-
-  buscarTodasNotas() {
-    return _get( `${url}notas` );
+  adicionarVga(body){
+    return _post(url+"computador/adicionar/vga",body)
   }
-  async registrarNota( {nota, episodioId } ) {
-    const response = await _post( `${ url }notas`,{nota, episodioId});
-    return response[ 0 ];
+  adicionarFonte(body){
+    return _post(url+"computador/adicionar/fonte",body)
   }
-
-  filtrarPorTermo( termo ) {
-      return _get( `${ url }detalhes?q=${ termo }` )
-    }
+  adicionarComputador(body){
+    return _post(url+"computador/adicionar/computador",body)
+  }
+  autenticacao(body){
+    return _post(url+"authentication",body);
+  }
 }

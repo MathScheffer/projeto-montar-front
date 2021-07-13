@@ -1,14 +1,14 @@
 import React,{Component} from"react";
 import {NavLink,Routes,Route} from 'react-router-dom'
 import './style.scss'
-import {BotaoUi, SlotProdutoContainer} from '../../components'
+import {BotaoUi, ComputadorContainer, SlotProdutoContainer} from '../../components'
 
 export default class Home extends Component{
     constructor(){
         super();
         this.retiraEspacos = this.retiraEspacos.bind(this);
     }
-    arr = ['Placa Mãe','Memória Ram','Armazenamento','Placa de Vídeo','Fonte']
+    arr = ['Placa Mãe','Memória Ram','Armazenamento','Placa de Vídeo','Fonte','Computador']
     retiraEspacos = (str) => {
         str = str.split(' ').map(val => {
             return val.normalize("NFD").replace(/[^a-zA-Zs]/g, "")
@@ -41,6 +41,7 @@ export default class Home extends Component{
                     <Route  path='/armazenamento' element={<SlotProdutoContainer categoria="armazenamento"/>}/>
                     <Route  path='/placa-de-video' element={<SlotProdutoContainer categoria="vga"/>}/>
                     <Route  path='/fonte' element={<SlotProdutoContainer categoria="fonte"/>}/>
+                    <Route  path='/computador' element={<SlotProdutoContainer isComputador={true}/>}/>
                 </Routes>
             </div>
         )

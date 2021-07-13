@@ -1,0 +1,19 @@
+.ComputadorContainer{
+   /*  display: flex;
+    flex-direction: column; */
+}
+.botaoRowContainer{
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    justify-content: flex-end;
+}
+
+.botao{
+    cursor: pointer;
+    align-self: flex-end;
+    min-width: 113px;
+    font-size: 1.25em;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}

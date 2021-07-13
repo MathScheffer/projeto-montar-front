@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router';
-import {BotaoUi, ContainerSelecao, SlotProduto, SlotProdutoProvider} from '../index'
+import {BotaoUi, ContainerSelecao, ComputadorContainer, SlotProduto, SlotProdutoProvider} from '../index'
 import style from './Slot.module.css'
 
-const SlotProdutoContainer = ({categoria}) => {
+const SlotProdutoContainer = ({categoria,isComputador = false}) => {
     let props = useLocation();
     //console.log(categoria)
     props = props.state
@@ -11,8 +11,15 @@ const SlotProdutoContainer = ({categoria}) => {
     return(
         <section className={`${style.slotProdutoContainer} container`}>
             <SlotProdutoProvider>
-                <ContainerSelecao categoria={categoria}/>
-                <SlotProduto categoria={categoria} infos={props}/>
+                { categoria && 
+                    <>
+                        <ContainerSelecao categoria={categoria}/>
+                        <SlotProduto categoria={categoria} infos={props}/>
+                    </>
+                }
+                { isComputador &&
+                    <ComputadorContainer />
+                }
             </SlotProdutoProvider>
         </section>
     )

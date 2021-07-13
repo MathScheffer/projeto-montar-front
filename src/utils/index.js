@@ -18,3 +18,14 @@ export const escolheInstancia = (categoria,produtoJson) => {
         return new FonteModel(produtoJson);
     }
 }
+
+export const mapToArray = (map) => {
+    let arr = [];
+
+    map.forEach((value,key) => {
+        let temp = [key,value];
+        arr.push(temp)
+    })
+
+    return arr;
+}
