@@ -11,8 +11,6 @@ export const escolheInstancia = (categoria,produtoJson) => {
     }else if(categoria === 'ram'){
         return new MemoriaRamModel(produtoJson);
     }else if(categoria === 'vga'){
-        console.log('aqui')
-        console.log(categoria)
         return new PlacaVideoModel(produtoJson)
     }else if(categoria === 'fonte'){
         return new FonteModel(produtoJson);

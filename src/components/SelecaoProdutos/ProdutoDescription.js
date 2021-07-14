@@ -3,17 +3,18 @@ import {Link} from 'react-router-dom'
 import { ProcessadorModel } from '../../model'
 import {escolheInstancia} from '../../utils';
 import { SlotProdutoContainerContext } from '../ContainerProduto/SlotProdutoContainerProvider'
+import usePost from '../../customHooks/usePost';
 import style from './ProdutoDescription.module.css'
 
 const ProdutoDescription = ({produto,setProduto,categoria}) => {
-    console.log(categoria)
+
     
     const [description,setDescription] = useState(null);
     const [classProduto,setClassProduto] = useState(null);
+    const { data, loading, error, request } = usePost();
     const context = useContext(SlotProdutoContainerContext);
 
     useEffect(() => {
-        console.log(categoria)
         setClassProduto((classProduto) => escolheInstancia(categoria,produto))
         //console.log(classProduto)
     },[categoria])
@@ -35,18 +36,27 @@ const ProdutoDescription = ({produto,setProduto,categoria}) => {
         let produtoTemp = produto;
         produtoTemp.description = description
         context.setProduto((prod) => prod.set(categoria, produtoTemp))
+
+        request(categoria,{id:produtoTemp.id});
+
+        if(data){
+            console.log(data)
+        }
+
+        context.setModalOn(false);
     }
+
     return (
         <>
         {(context.produto && categoria)&&
             <div onClick={enviarProduto} className={`row ${style.produtoDescricaoContainer}`}>
                 <div className={`grid-4 ${style.produtoDescricaoImgContainer}`}>
-                    <img></img>
+                    <img src={produto.img}/>
                 </div>
                 <div className={`grid-8 ${style.produtoDescricao}`}>
                     <h3>{produto.nome}</h3>
                     
-                    <p>{description ? description : "INTEL CORE I7-10700KF, 4Ghz (up to 5GHZ),LGA1200"}</p>
+                    <p>{description ? description : ""}</p>
                 </div> 
             </div>
         }

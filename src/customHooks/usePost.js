@@ -21,6 +21,9 @@ const escolheCall = async(nome,body) => {
         case "fonte":
             return await api.adicionarFonte(body);
             break;
+        case "computador":
+          return await api.adicionarComputador(body);
+          break;
     }
 }
 const usePost = () => {
@@ -35,8 +38,8 @@ const usePost = () => {
       setError(null);
       setLoading(true);
       response = await escolheCall(componente,body);
-      console.log(response)
       json = response;
+      console.log(json)
       if (response.ok === false) throw new Error(json);
     } catch (err) {
       json = null;

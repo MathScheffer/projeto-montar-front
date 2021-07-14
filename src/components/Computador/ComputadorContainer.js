@@ -19,14 +19,8 @@ const ProdutoSelecionadoContainer = () => {
     },[context])
 
     useEffect(() => {
-        request('processador',{id:19})
-            .then(body => setRetorno(body.json));
-            console.log(error)
-    },[teste]);
-
-    useEffect(() => {
-        console.log(error)
-    },[error])
+        console.log(data)  
+    },[data])
 
     const retornaNomeFormatado = (nomeHardware) => {
         
@@ -52,10 +46,15 @@ const ProdutoSelecionadoContainer = () => {
         }
     }
 
-    const incrementar = () => {
-        setTeste((teste) => teste+1)
-    }
     const hardwaresCategories = ['processador','placa-mae','armazenamento','ram','vga','fonte']
+
+    const cadastrarComputador = () => {
+        console.log('clickou')
+        request('computador',{id:1})
+        if(data)      
+            console.log(data);
+    }
+    
     return (
 
         <section className={style.ComputadorContainer}>
@@ -63,14 +62,14 @@ const ProdutoSelecionadoContainer = () => {
 
             {thisProdutos &&
                 thisProdutos.map(keyValue =>
-                <>
-                    <h2>{retornaNomeFormatado(keyValue[0])}</h2>
-                    <Hardware hardware={keyValue[1]}/>
-                </>
+                    <div key={keyValue}>
+                        <h2>{retornaNomeFormatado(keyValue[0])}</h2>
+                        <Hardware hardware={keyValue[1]}/>
+                    </div>
                 )
             }
             <div className={`row ${style.botaoRowContainer}`}>
-                    <BotaoUi onClick={incrementar} className={style.botao} nome={"Montar"}/>
+                <BotaoUi onClick={cadastrarComputador} className={style.botao} nome={"Montar"}/>
             </div>
         </section>
     )

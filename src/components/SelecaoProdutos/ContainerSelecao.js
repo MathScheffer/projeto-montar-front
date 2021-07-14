@@ -24,11 +24,9 @@ const ContainerSelecao = (state) => {
     },[state.categoria]);
 
     useEffect(() => {
-        console.log(state.categoria)
         if(state.categoria){
             request(state.categoria)
             .then(body => setListProdutos(body.json));
-            console.log(listProdutos)
         }
     },[state.categoria]);
 

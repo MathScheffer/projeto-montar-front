@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './index.css'
 
-const BotaoUi = ({nome,...props}) => {
+const  BotaoUi = ({nome,...props}) => {
     const infos = useLocation()
     let color = 'blue'
     if(infos.state){

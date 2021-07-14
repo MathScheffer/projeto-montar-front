@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {BotaoUi, ContainerSelecao,SlotProdutoContainerContext} from '../index'
 import {escolheInstancia} from '../../utils';
-//import img from '../../img/delta-rgb-pichau.jpg'
+
 import style from './Slot.module.css';
 const img = require('../../img/delta-rgb-pichau.jpg')
 console.log(img.default)
@@ -11,29 +11,13 @@ const SlotProduto = (infos) => {
     const context = useContext(SlotProdutoContainerContext);
     const categoria = infos.categoria
     const [classProduto,setClassProduto] = useState(null);
-    //const [img,setImg] = useState();
-
-
-
-/*     useEffect(() => {
-        if(categoria && context && context.produto && context.produto.get(categoria) && context.produto.get(categoria).img){
-            setImg((img) => require(context.produto.get(categoria).img))
-        }
-    },[categoria,context,context.produto]) */
+    const [thisProduto,setThisProduto] = useState()
 
     useEffect(() => {
         if(categoria && context && context.produto && context.produto.get(categoria)){
             setClassProduto((classProduto) => escolheInstancia(categoria,context.produto.get(categoria)));
         }
     },[categoria,context,context.produto])
-
-    function montaListaEspecificacoes(description){
-        let list = [];
-        description.forEach((value,key) => {
-            list.push([key,value])
-        })
-        return list;
-    }
 
     useEffect(() => {
         if(classProduto){
@@ -44,24 +28,11 @@ const SlotProduto = (infos) => {
                 setDescription(() => montaListaEspecificacoes(classProduto.getList()))
             }
         }
-
     },[context.produto,categoria])
 
-    const [thisProduto,setThisProduto] = useState()
-
-    if(context.produto){
-        //console.log(categoria)
-        if(context.produto.get(categoria)){
-            //console.log(context.produto.get(categoria))
-        }
-    }
     const changeModal = () =>{
         context.setModalOn(true);
     }
-    useEffect(() =>{
-       // console.log(context.produto)
-    },[context.produto])
-
 
     const retornaLiComDescricao = (produto,categoria) => {
         
@@ -79,7 +50,14 @@ const SlotProduto = (infos) => {
                  <li key={`${keyValue[0]}-${keyValue[1]}`}>{keyValue[0]}:{keyValue[1]}</li>
         )
     }
-    let img2 = process.env.PUBLIC_URL + '../../img/delta-rgb-pichau.jpg'
+    
+    function montaListaEspecificacoes(description){
+        let list = [];
+        description.forEach((value,key) => {
+            list.push([key,value])
+        })
+        return list;
+    }
     return(
     <div className='row'>
         <div className={`grid-8 ${style.slotProduto}`}> 
@@ -101,7 +79,7 @@ const SlotProduto = (infos) => {
                                 {description &&
                                 <ul>
                                     {(context.produto && context.produto.get(categoria)) ? 
-                                        context.produto.get(categoria).description :
+                                        description.map(value => <li>{value}</li>) :
                                         ""
                                         //retornaLiComDescricao(context.produto.get(categoria),categoria)
                                         

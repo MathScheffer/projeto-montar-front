@@ -50,8 +50,11 @@
 .produtoDescricaoContainer{
     border:1px solid black;
     height: 100%;
-    cursor:pointer
+    cursor:pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
 .produtoDescricao{
     background:'tomato';
     height: 100%;
@@ -59,8 +62,11 @@
 }
 
 .produtoDescricaoImgContainer{
-    background-color: aqua;
-    height: 60px;
+    height: 130px;
+}
+
+.produtoDescricaoImgContainer img{
+    height: 100%;
 }
 
 .botao{

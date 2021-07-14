@@ -3,8 +3,6 @@ import React, { useContext, useEffect,useState } from 'react'
 import style from './Hardware.module.css';
 
 const Hardware = ({hardware}) => {
-    console.log('aqui agora')
-    console.log(hardware)
     return (
         <div className={`row ${style.produtoDescricaoContainer}`}>
             <div className={`grid-2 ${style.produtoDescricaoImgContainer}`}>
